@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
     int a;
     int b;
     boolean arti=false;
-    int c=0;
+    int c=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
