@@ -1,29 +1,39 @@
-package com.example.myapp;
+package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     int a;
     int b;
     boolean arti=false;
-    int c=0;
+    int toplam=0;
+
+    Button button1 = findViewById(R.id.button1);
+    Button button2 = findViewById(R.id.button2);
+    Button button3 = findViewById(R.id.button3);
+    Button button4 = findViewById(R.id.button4);
+    Button button5 = findViewById(R.id.button5);
+    Button button6 = findViewById(R.id.button6);
+    Button button7 = findViewById(R.id.button7);
+    Button button8 = findViewById(R.id.button8);
+    Button button9 = findViewById(R.id.button9);
+    Button button0 = findViewById(R.id.button0);
+    Button buttonPlus = findViewById(R.id.buttonPlus);
+    Button buttonMinus = findViewById(R.id.buttonMinus);
+    Button buttonEquals = findViewById(R.id.buttonEquals);
+    TextView textView = findViewById(R.id.textView);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button button = findViewById(R.id.button);
-        final Button button2 = findViewById(R.id.button2);
-        final Button button3 = findViewById(R.id.button3);
-        final Button button4 = findViewById(R.id.button4);
-        final Button button5 = findViewById(R.id.button5);
-        final Button button6 = findViewById(R.id.button6);
-
-        button.setOnClickListener(new View.OnClickListener() {
+        button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(arti==false){
                     a=1;
@@ -63,20 +73,42 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 arti=true;
             }
         });
-        button6.setOnClickListener(new View.OnClickListener() {
+
+        /*public void hesaplaSonuc(View v){
+            textView.setText(Integer.toString(toplam));
+        }*/
+
+        /*button6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                System.out.println("Toplam= " + (a+b));
+                toplam=a+b;
+                System.out.println("a sayısı= " + a + " b sayısı= " + b);
+                System.out.println("Toplam= " + );
+                textView.setText(Integer.toString(toplam));
+                arti=false;
+                a=0;
+                b=0;
+            }
+        });*/
+    }
+    public void tikla (Button bt){
+        bt.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                toplam=a+b;
+                textView.setText(Integer.toString(toplam));
                 arti=false;
                 a=0;
                 b=0;
             }
         });
-    }
 
+    }
 
 }
