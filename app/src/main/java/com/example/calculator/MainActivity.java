@@ -8,34 +8,36 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
     int a;
     int b;
-    boolean arti=false;
+    char islem= '?';
     int toplam=0;
-
-    Button button1 = findViewById(R.id.button1);
-    Button button2 = findViewById(R.id.button2);
-    Button button3 = findViewById(R.id.button3);
-    Button button4 = findViewById(R.id.button4);
-    Button button5 = findViewById(R.id.button5);
-    Button button6 = findViewById(R.id.button6);
-    Button button7 = findViewById(R.id.button7);
-    Button button8 = findViewById(R.id.button8);
-    Button button9 = findViewById(R.id.button9);
-    Button button0 = findViewById(R.id.button0);
-    Button buttonPlus = findViewById(R.id.buttonPlus);
-    Button buttonMinus = findViewById(R.id.buttonMinus);
-    Button buttonEquals = findViewById(R.id.buttonEquals);
-    TextView textView = findViewById(R.id.textView);
-
+    TextView textView;
+    Button buttonPlus, buttonMinus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button1.setOnClickListener(new View.OnClickListener() {
+        /*Button button1 = findViewById(R.id.button1);
+        Button button2 = findViewById(R.id.button2);
+        Button button3 = findViewById(R.id.button3);
+        Button button4 = findViewById(R.id.button4);
+        Button button5 = findViewById(R.id.button5);
+        Button button6 = findViewById(R.id.button6);
+        Button button7 = findViewById(R.id.button7);
+        Button button8 = findViewById(R.id.button8);
+        Button button9 = findViewById(R.id.button9);
+        Button button0 = findViewById(R.id.button0);
+        Button buttonEquals = findViewById(R.id.buttonEquals);*/
+        buttonPlus = findViewById(R.id.buttonPlus);
+        buttonMinus = findViewById(R.id.buttonMinus);
+
+        textView = findViewById(R.id.textView);
+        /*button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(arti==false){
+                if(islem=='+' || islem=='-'){
                     a=1;
                 }
                 else{
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(arti==false){
+                if(islem=='+' || islem=='-'){
                     a=2;
                 }
                 else{
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         });
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(arti==false){
+                if(islem=='+' || islem=='-'){
                     a=3;
                 }
                 else{
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(arti==false){
+                if(islem=='+' || islem=='-'){
                     a=4;
                 }
                 else{
@@ -74,41 +76,64 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-        button5.setOnClickListener(new View.OnClickListener() {
+        button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                arti=true;
-            }
-        });
-
-        /*public void hesaplaSonuc(View v){
-            textView.setText(Integer.toString(toplam));
-        }*/
-
-        /*button6.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                toplam=a+b;
-                System.out.println("a sayısı= " + a + " b sayısı= " + b);
-                System.out.println("Toplam= " + );
-                textView.setText(Integer.toString(toplam));
-                arti=false;
-                a=0;
-                b=0;
+                if(islem=='+' || islem=='-'){
+                    a=4;
+                }
+                else{
+                    b=4;
+                }
             }
         });*/
-    }
-    public void tikla (Button bt){
-        bt.setOnClickListener(new View.OnClickListener() {
+
+        buttonPlus.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                toplam=a+b;
-                textView.setText(Integer.toString(toplam));
-                arti=false;
-                a=0;
-                b=0;
+                islem='+';
+                textView.setText(String.valueOf(a) + "+");
+            }
+        });
+
+        buttonMinus.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                islem='-';
+                textView.setText(String.valueOf(a) + "-");
             }
         });
 
     }
+    public void sonuc (View v){
+        //islem=c;
+        if(islem=='+'){
+            toplam=a+b;
+        }
+        if(islem=='-'){
+            toplam=a-b;
+        }
+        textView.setText(String.valueOf(toplam));
+        System.out.println("a sayısı= " + a + " b sayısı= " + b);
+        System.out.println("Toplam= " + toplam);
+        //textView.setText(toplam);
+        islem='.';
+        a=0;
+        b=0;
+    }
 
+    public void ata (View v) {
+        Button bt = (Button) v;
+
+        int sayi=Integer.parseInt(bt.getText().toString());
+        if(islem=='+'){
+            b=sayi;
+            textView.setText(String.valueOf(a) + "+" + String.valueOf(b));
+        }
+        else if(islem=='-'){
+            b=sayi;
+            textView.setText(String.valueOf(a) + "-" + String.valueOf(b));
+        }
+        else{
+            a=sayi;
+            textView.setText(String.valueOf(a));
+        }
+    }
 }
