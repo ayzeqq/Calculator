@@ -142,12 +142,12 @@
             android:onClick="islemAta"
             android:text="*" />
         <Button
-            android:id="@+id/buttonEquals"
+            android:id="@+id/buttonClear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:onClick="sonuc"
-            android:text="=" />
+            android:onClick="clear"
+            android:text="C" />
         <Button
             android:id="@+id/buttonDivision"
             android:layout_width="wrap_content"
@@ -160,22 +160,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:layout_marginLeft="48dp"
+        android:gravity="center"
         android:layout_marginTop="10dp">
-
         <Button
-            android:id="@+id/buttonClear"
+            android:id="@+id/buttonSwitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="clear"
-            android:text="C"/>
+            android:onClick="yapim"
+            android:text="---" />
+
+
         <Button
             android:id="@+id/buttonDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+
+            android:layout_marginStart="25dp"
             android:text="-X-" />
+
+        <Button
+            android:id="@+id/buttonEquals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:onClick="sonuc"
+            android:text="=" />
 
 
     </LinearLayout>
