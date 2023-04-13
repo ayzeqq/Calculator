@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#9c9c9c"
     >
 
     <LinearLayout
@@ -12,15 +13,16 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="119dp"
-            android:layout_height="55dp"
-            android:background="#008080"
+            android:layout_width="338dp"
+            android:layout_height="118dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:background="#b5b5b5"
+            android:gravity="center"
             android:text="SONUÇ"
-            android:textColor="#fff"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="40dp"/>
+            android:textColor="#000000"
+            android:textSize="40dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -33,158 +35,173 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="ata"
-            android:text="7" />
+            android:text="7"
+            android:textSize="@android:dimen/app_icon_size"/>
         <Button
             android:id="@+id/button8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="5dp"
             android:onClick="ata"
-            android:text="8" />
+            android:text="8"
+            android:textSize="@android:dimen/app_icon_size"/>
         <Button
             android:id="@+id/button9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="5dp"
             android:onClick="ata"
-            android:text="9" />
+            android:text="9"
+            android:textSize="@android:dimen/app_icon_size"/>
+        <Button
+            android:id="@+id/buttonDivision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:onClick="islemAta"
+            android:text="/"
+            android:textSize="@android:dimen/app_icon_size"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="0dp">
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="ata"
-            android:text="4" />
+            android:text="4"
+            android:textSize="@android:dimen/app_icon_size"/>
 
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="5dp"
             android:onClick="ata"
-            android:text="5" />
+            android:text="5"
+            android:textSize="@android:dimen/app_icon_size"/>
 
         <Button
             android:id="@+id/button6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="5dp"
             android:onClick="ata"
-            android:text="6" />
+            android:text="6"
+            android:textSize="@android:dimen/app_icon_size"/>
+        <Button
+            android:id="@+id/buttonMultiply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:onClick="islemAta"
+            android:text="*"
+            android:textSize="@android:dimen/app_icon_size"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="0dp">
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="ata"
-            android:text="1" />
+            android:text="1"
+            android:textSize="@android:dimen/app_icon_size"/>
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="5dp"
             android:onClick="ata"
-            android:text="2" />
+            android:text="2"
+            android:textSize="@android:dimen/app_icon_size"/>
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="5dp"
             android:onClick="ata"
-            android:text="3" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="10dp">
-        <Button
-            android:id="@+id/buttonPlus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="islemAta"
-            android:text="+" />
-        <Button
-            android:id="@+id/button0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:onClick="ata"
-            android:text="0" />
+            android:text="3"
+            android:textSize="@android:dimen/app_icon_size"/>
         <Button
             android:id="@+id/buttonMinus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="5dp"
             android:onClick="islemAta"
-            android:text="-" />
+            android:text="-"
+            android:textSize="@android:dimen/app_icon_size"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="10dp">
-
-        <Button
-            android:id="@+id/buttonMultiply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="islemAta"
-            android:text="*" />
-        <Button
-            android:id="@+id/buttonClear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:onClick="clear"
-            android:text="C" />
-        <Button
-            android:id="@+id/buttonDivision"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:onClick="islemAta"
-            android:text="/" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="0dp">
         <Button
             android:id="@+id/buttonSwitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="yapim"
-            android:text="---" />
+            android:text="SC"
+            android:textSize="40dp"/>
+        <Button
+            android:id="@+id/buttonClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:onClick="clear"
+            android:text="C"
+            android:textSize="@android:dimen/app_icon_size"/>
+        <Button
+            android:id="@+id/button0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:onClick="ata"
+            android:text="0"
+            android:textSize="@android:dimen/app_icon_size"/>
+        <Button
+            android:id="@+id/buttonPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:onClick="islemAta"
+            android:text="+"
+            android:textSize="@android:dimen/app_icon_size"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="fill_horizontal"
+        android:layout_marginTop="0dp">
+
 
 
         <Button
             android:id="@+id/buttonDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="delete"
 
-            android:layout_marginStart="25dp"
-            android:text="-X-" />
+            android:text="DEL"
+            android:textSize="@android:dimen/app_icon_size"/>
 
         <Button
             android:id="@+id/buttonEquals"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+
             android:onClick="sonuc"
-            android:text="=" />
+            android:text="="
+            android:textSize="@android:dimen/app_icon_size"/>
 
 
     </LinearLayout>

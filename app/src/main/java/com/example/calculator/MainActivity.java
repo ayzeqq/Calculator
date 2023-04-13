@@ -1,5 +1,7 @@
 package com.example.calculator;
 
+import static java.lang.String.format;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -8,9 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 /*
-* Sonuçtan sonra işlem yapmayı ayrıntılandır.
-* +'ya basmak ile sayı girmek farklı tepki vermeli.
+*
 *
 * */
 
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     char islem= '?';
     double toplam=0;
     TextView textView;
+    boolean isUsed=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,94 +36,47 @@ public class MainActivity extends AppCompatActivity {
     public void ata (View v) {
         Button bt = (Button) v;
         int sayi=Integer.parseInt(bt.getText().toString());
-
+        String tplm=new DecimalFormat("##.#####").format(a);
         if(islem=='+'){
-            if(b!=0){
+            //if(b!=0){
                 if(a%1==0){
                     b=b*10+sayi;
                     textView.setText((int)a + "+" + (int)b);
                 }
                 else{
                     b=b*10+sayi;
-                    textView.setText(a + "+" + (int)b);
+                    textView.setText(tplm + "+" + (int)b);
                 }
-            }
-            else{
-                if(a%1==0){
-                    b=sayi;
-                    textView.setText((int)a + "+" + (int)b);
-                }
-                else{
-                    b=sayi;
-                    textView.setText(a + "+" + (int)b);
-                }
-            }
         }
         else if(islem=='-'){
-            if(b!=0){
                 if(a%1==0){
                     b=b*10+sayi;
                     textView.setText((int)a + "-" + (int)b);
                 }
                 else{
                     b=b*10+sayi;
-                    textView.setText(a + "-" + (int)b);
+                    textView.setText(tplm + "-" + (int)b);
                 }
-            }
-            else{
-                if(a%1==0){
-                    b=sayi;
-                    textView.setText((int)a + "-" + (int)b);
-                }
-                else{
-                    b=sayi;
-                    textView.setText(a + "-" + (int)b);
-                }
-            }
         }
         else if(islem=='*'){
-            if(b!=0){
                 if(a%1==0){
                     b=b*10+sayi;
                     textView.setText((int)a + "*" + (int)b);
                 }
                 else{
                     b=b*10+sayi;
-                    textView.setText(a + "*" + (int)b);
+                    textView.setText(tplm + "*" + (int)b);
                 }
-            }
-            else{
-                if(a%1==0){
-                    b=sayi;
-                    textView.setText((int)a + "*" + (int)b);
-                }
-                else{
-                    b=sayi;
-                    textView.setText(a + "*" + (int)b);
-                }
-            }
         }
         else if(islem=='/'){
-            if(b!=0){
                 if(a%1==0){
                     b=b*10+sayi;
                     textView.setText((int)a + "/" + (int)b);
                 }
                 else{
                     b=b*10+sayi;
-                    textView.setText(a + "/" + (int)b);
+                    textView.setText(tplm + "/" + (int)b);
                 }
-            }
-            else{
-                if(a%1==0){
-                    b=sayi;
-                    textView.setText((int)a + "/" + (int)b);
-                }
-                else{
-                    b=sayi;
-                    textView.setText(a + "/" + (int)b);
-                }
-            }
         }
         else{
             if(a!=0){
@@ -143,9 +100,9 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(String.valueOf((int)a)+islem);
         }
         else{
-            textView.setText(String.valueOf(a)+islem);
+            String tplm=new DecimalFormat("##.#####").format(a);
+            textView.setText(tplm+islem);
         }
-
     }
 
     public void sonuc (View v){
@@ -169,29 +126,49 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText(String.valueOf((int)toplam));
             }
             else{
-                textView.setText(String.valueOf(toplam));
+                String tplm=new DecimalFormat("##.#####").format(toplam);
+                textView.setText(tplm);
             }
         }
         islem='?';
         a=0;
         b=0;
+        isUsed=true;
     }
 
-    /*public void delete () {
-        if(b!=0){
+    public void delete (View v) {
+        String tempA;
+        if(a%1==0){
+            tempA=String.valueOf((int)a);
+        }
+        else{
+            tempA=new DecimalFormat("##.#####").format(toplam);;
+        }
+        if(b>9){
             b=(b-b%10)/10;
+            textView.setText(tempA + islem + String.valueOf((int)b));
+        }
+        else if(b<9 && b!=0){
+            b=0;
+            textView.setText(tempA + islem);
         }
         else if(islem!='?'){
             islem='?';
+            textView.setText(tempA);
         }
-        else if(a!=0){
+        else if(a!=0 && a%1!=0){
             a=(a-a%10)/10;
+            textView.setText(String.valueOf(a));
+        }
+        else if(a!=0 && a%1==0){
+            a=(a-a%10)/10;
+            textView.setText(String.valueOf((int)a));
         }
         else{
             a=0;
             b=0;
         }
-    }*/
+    }
 
     public void clear (View v) {
         islem='?';
@@ -199,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
         b=0;
         toplam=0;
         textView.setText("0");
+        isUsed=false;
     }
 
     public void yapim(View v){
